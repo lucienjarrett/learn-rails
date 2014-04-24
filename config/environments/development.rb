@@ -16,6 +16,18 @@ Rails.application.configure do
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = false
 
+ config.action_mailer.smtp_settings = {
+      address: "smtp.gmail.com",
+      port: 587,
+      domain: ENV["DOMAIN_NAME"]
+      authentication: "plain",
+      enable_starttls_auto: true,
+      user_name: ENV["GMAIL_USERNAME"],
+      user_name: ENV["GMAIL_PASSWORD"]
+
+  config.action_mailer.perform_deliveries = true
+
+
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
 
